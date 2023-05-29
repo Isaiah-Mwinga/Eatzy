@@ -1,14 +1,14 @@
 import os   
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI
 
 from app.users import auth
 
 from fastapi.testclient import TestClient
 
-Base.metadata.create_all(engine)
-
 
 app = FastAPI()
+
 app.include_router(auth.router)
 
 
