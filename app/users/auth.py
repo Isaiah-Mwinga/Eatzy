@@ -10,33 +10,25 @@ router = APIRouter(
     tags=["auth"],
 )
 
-@router.post("/token", response_model=Token)
-async def login_for_access_token(
-    form_data: Annotated[OAuth2PasswordRequestForm, Depends()]
-):
-    user = authenticate_user(fake_users_db, form_data.username, form_data.password)
-    if not user:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect username or password",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-    access_token = create_access_token(
-        data={"sub": user.username}, expires_delta=access_token_expires
-    )
-    return {"access_token": access_token, "token_type": "bearer"}
+@router.get("/docs", response_class=HTMLResponse, include_in_schema=False, dependencies=[Depends(HTTPBearer())])
+def redoc_html(request: Request)-> HTMLResponse:
+    root_path = request.scope.get("root_path", "").rstrip("/")
+    openapi_url = root_path + "/openapi.json"
+    return get_redoc_html(openapi_url=openapi_url, title="API Docs")
 
+@router.get("/openapi.json", response_class=HTMLResponse, include_in_schema=False, dependencies=[Depends(HTTPBearer())])
+def openapi(request: Request)-> JSONResponse:
+    urls = (server_data.get("url")for server_data in request.app.servers)
+    server_urls = [url for url in urls if url]
+    rooth_path = request.scope.get("root_path", "").rstrip("/")
+    if rooth_path not in server_urls:
+        if rooth_path and request.app.rooth_path_in_servers:
+            request.app.servers.insert(0,{"url": rooth_path})
+            server_urls.add(rooth_path)
+    return JSONResponse(request.app.openapi())
 
-@router.get("/users/me/", response_model=User)
-async def read_users_me(
-    current_user: Annotated[User, Depends(get_current_active_user)]
-):
-    return current_user
-
-
-@router.get("/users/me/items/")
-async def read_own_items(
-    current_user: Annotated[User, Depends(get_current_active_user)]
-):
-    return [{"item_id": "Foo", "owner": current_user.username}]
+@router.post("/login")
+async def user_login(user: UserLoginSchema = Body(...)):
+    if authenticate(user):
+        return sign_jwt(user.email)
+    raise HTTPException(status_code=401, detail="Invalid username or password")

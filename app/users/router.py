@@ -77,28 +77,3 @@ class AuthBearer(HTTPBearer):
         if payload:
             is_token_valid = True
         return is_token_valid
-
-app = FastAPI()
-
-@app.get("/docs", response_class=HTMLResponse, include_in_schema=False, dependencies=[Depends(HTTPBearer())])
-def redoc_html(request: Request)-> HTMLResponse:
-    root_path = request.scope.get("root_path", "").rstrip("/")
-    openapi_url = root_path + "/openapi.json"
-    return get_redoc_html(openapi_url=openapi_url, title="API Docs")
-
-@app.get("/openapi.json", response_class=HTMLResponse, include_in_schema=False, dependencies=[Depends(HTTPBearer())])
-def openapi(request: Request)-> JSONResponse:
-    urls = (server_data.get("url")for server_data in request.app.servers)
-    server_urls = [url for url in urls if url]
-    rooth_path = request.scope.get("root_path", "").rstrip("/")
-    if rooth_path not in server_urls:
-        if rooth_path and request.app.rooth_path_in_servers:
-            request.app.servers.insert(0,{"url": rooth_path})
-            server_urls.add(rooth_path)
-    return JSONResponse(request.app.openapi())
-
-@app.post("/login")
-async def user_login(user: UserLoginSchema = Body(...)):
-    if authenticate(user):
-        return sign_jwt(user.email)
-    raise HTTPException(status_code=401, detail="Invalid username or password")
