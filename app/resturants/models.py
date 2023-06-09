@@ -13,7 +13,6 @@ class Restaurant(Base):
     email = Column(String)
     description = Column(String)
     is_active = Column(Boolean, default=False)
-    is_verified = Column(Boolean, default=False)
     owner_id = Column(Integer, ForeignKey("users.id"))
     owner = relationship("User", back_populates="restaurants")
     menu = relationship("Menu", back_populates="restaurant")
@@ -41,3 +40,16 @@ class User(Base):
     is_staff = Column(Boolean, default=False)
     is_active = Column(Boolean, default=False)
     restaurants = relationship("Restaurant", back_populates="owner")
+
+
+class Order(Base):
+    __tablename__ = "orders"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String)
+    phone = Column(String)
+    address = Column(String)
+    email = Column(String)
+    is_active = Column(Boolean, default=False)
+    menu_id = Column(Integer, ForeignKey("menus.id"))
+    menu = relationship("Menu", back_populates="order")
