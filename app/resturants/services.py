@@ -1,37 +1,38 @@
 from config.database import get_db
 from fastapi import APIRouter, Depends, status, Response, HTTPException
 from sqlalchemy.orm import Session
-from resturants import schemas, models
+from resturants.schema import Restaurant
+from resturants.models import Restaurant
 
-def create_resturant(request:schemas.Resturant, db:Session = Depends(get_db)):
-    new_resturant = models.Resturant(name=request.name, address=request.address, phone=request.phone, email=request.email, description=request.description, is_active=request.is_active, owner_id=request.owner_id)
-    db.add(new_resturant)
+def create_resturant(request:Restaurant, db:Session = Depends(get_db)):
+    new_restaurant = models.Restaurant(name=request.name, address=request.address, phone=request.phone, email=request.email, description=request.description, is_active=request.is_active, owner_id=request.owner_id)
+    db.add(new_restaurant)
     db.commit()
-    db.refresh(new_resturant)
-    return new_resturant
+    db.refresh(new_restaurant)
+    return new_restaurant
 
 def get_all_resturants(db:Session = Depends(get_db)):
-    resturants = db.query(models.Resturant).all()
-    return resturants
+    restaurants = db.query(models.Restaurant).all()
+    return restaurants
 
 def get_resturant(id:int, response:Response, db:Session = Depends(get_db)):
-    resturant = db.query(models.Resturant).filter(models.Resturant.id == id).first()
-    if not resturant:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Resturant with id {id} not found")
-    return resturant
+    restaurant = db.query(models.Restaurant).filter(models.Restaurant.id == id).first()
+    if not restaurant:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Restaurant with id {id} not found")
+    return restaurant
 
 def delete_resturant(id:int, response:Response, db:Session = Depends(get_db)):
-    resturant = db.query(models.Resturant).filter(models.Resturant.id == id)
-    if not resturant.first():
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Resturant with id {id} not found")
-    resturant.delete(synchronize_session=False)
+    restaurant = db.query(models.Restaurant).filter(models.Restaurant.id == id)
+    if not restaurant.first():
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Restaurant with id {id} not found")
+    restaurant.delete(synchronize_session=False)
     db.commit()
     return 'done'
 
-def update_resturant(id:int, request:schemas.Resturant, db:Session = Depends(get_db)):
-    resturant = db.query(models.Resturant).filter(models.Resturant.id == id)
-    if not resturant.first():
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Resturant with id {id} not found")
-    resturant.update(request)
+def update_resturant(id:int, request:Restaurant, db:Session = Depends(get_db)):
+    restaurant = db.query(models.Restaurant).filter(models.Restaurant.id == id)
+    if not restaurant.first():
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Restaurant with id {id} not found")
+    restaurant.update(request)
     db.commit()
     return 'updated'

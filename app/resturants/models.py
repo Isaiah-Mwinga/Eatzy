@@ -30,16 +30,16 @@ class Menu(Base):
     restaurant = relationship("Restaurant", back_populates="menu")
 
 
-class User(Base):
-    __tablename__ = "users"
-
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String)
-    email = Column(String)
-    password = Column(String)
-    is_staff = Column(Boolean, default=False)
-    is_active = Column(Boolean, default=False)
-    restaurants = relationship("Restaurant", back_populates="owner")
+#class User(Base):
+#    __tablename__ = "users"
+#
+#    id = Column(Integer, primary_key=True, index=True)
+#    name = Column(String)
+#    email = Column(String)
+#    password = Column(String)
+#    is_staff = Column(Boolean, default=False)
+#    is_active = Column(Boolean, default=False)
+#    restaurants = relationship("Restaurant", back_populates="owner")
 
 
 class Order(Base):

@@ -3,6 +3,7 @@ from config.database import engine
 from config.database import Base
 from auth import authrouter
 from users import usersrouter
+from resturants import router
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -23,13 +24,10 @@ app.add_middleware(
 Base.metadata.create_all(bind=engine)
 
 
-@app.get("/")
-def hello():
-    return "Hello"
-
-
-app.include_router(authrouter.router)
 app.include_router(usersrouter.router)
+app.include_router(authrouter.router)
+app.include_router(router.router)
+
 
 
 
