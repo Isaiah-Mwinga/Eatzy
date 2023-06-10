@@ -1,25 +1,23 @@
-version: "3.9"
-
+version: "3"
 services:
-  db:
-    image: postgres:12-alpine
-    container_name: eatzy_demodb
-    restart: always
-    environment:
-      - POSTGRES_DB=eatzy
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=root
-    networks:
-      - fastapiappnetwork
-
   app:
-    image: eatzy
-    container_name: eatzy_demoapp
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - 8000:8000
-    volumes:
-      - .:/home
+      - "8000:8000"
     depends_on:
       - db
-    networks:
-      - fastapiappnetwork
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=mypassword
+      - POSTGRES_DB=mydatabase
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
