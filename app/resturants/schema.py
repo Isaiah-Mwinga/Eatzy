@@ -22,4 +22,5 @@ class User(BaseModel):
     password: str
     is_staff: bool
     is_active: bool
+    
 
