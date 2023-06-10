@@ -3,7 +3,7 @@ from config.database import engine
 from config.database import Base
 from auth import authrouter
 from users import usersrouter
-from resturants import router
+from restaurants import router
 
 from fastapi.middleware.cors import CORSMiddleware
 
