@@ -12,7 +12,7 @@ def create_restaurant(request:Restaurant, db:Session = Depends(get_db)):
         phone=request.phone, email=request.email, 
         description=request.description, 
         is_active=request.is_active, 
-        owner_id=request.owner_id
+        #owner_id=request.owner_id
         )
     db.add(new_restaurant)
     db.commit()
