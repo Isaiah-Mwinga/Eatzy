@@ -14,7 +14,7 @@ class Menu(BaseModel):
     description: str
     price: str
     is_active: bool
-    #restaurant_id: int
+    restaurant_id: int
 
 #class User(BaseModel):
 #    name: str

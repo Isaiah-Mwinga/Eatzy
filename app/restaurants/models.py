@@ -15,7 +15,7 @@ class Restaurant(Base):
     is_active = Column(Boolean, default=False)
     #owner_id = Column(Integer, ForeignKey("users.id"))
     #owner = relationship("User", back_populates="restaurants")
-    #menu = relationship("Menu", back_populates="restaurant")
+    menu = relationship("Menu", back_populates="restaurant")
 
 
 class Menu(Base):
@@ -26,8 +26,8 @@ class Menu(Base):
     description = Column(String)
     price = Column(String)
     is_active = Column(Boolean, default=False)
-    #restaurant_id = Column(Integer, ForeignKey("restaurants.id"))
-    #restaurant = relationship("Restaurant", back_populates="menu")
+    restaurant_id = Column(Integer, ForeignKey("restaurants.id"))
+    restaurant = relationship("Restaurant", back_populates="menu")
 
 
 #class User(Base):

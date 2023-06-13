@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from config.database import get_db
 from restaurants.models import Menu
 from restaurants.schema import Menu
-from restaurants.services import create_menu, get_all_menus, get_menu, delete_menu, update_menu
+from menu.services import create_menu, get_all_menus, get_menu, delete_menu, update_menu
 
 router = APIRouter(prefix="/menus", tags=["Menus"])
 

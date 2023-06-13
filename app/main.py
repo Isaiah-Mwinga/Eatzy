@@ -5,6 +5,7 @@ from config.database import Base
 from auth import authrouter
 from users import usersrouter
 from restaurants import router
+from menu import mrouter
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -28,6 +29,7 @@ Base.metadata.create_all(bind=engine)
 app.include_router(usersrouter.router)
 app.include_router(authrouter.router)
 app.include_router(router.router)
+app.include_router(mrouter.router)
 
 
 
