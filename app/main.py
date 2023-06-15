@@ -6,6 +6,7 @@ from auth import authrouter
 from users import usersrouter
 from restaurants import router
 from menu import mrouter
+from orders import orouter
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -30,6 +31,7 @@ app.include_router(usersrouter.router)
 app.include_router(authrouter.router)
 app.include_router(router.router)
 app.include_router(mrouter.router)
+app.include_router(orouter.router)
 
 
 
