@@ -51,5 +51,5 @@ class Order(Base):
     address = Column(String)
     email = Column(String)
     is_active = Column(Boolean, default=False)
-    #menu_id = Column(Integer, ForeignKey("menus.id"))
-    #menu = relationship("Menu", back_populates="order")
+    menu_id = Column(Integer, ForeignKey("menus.id"))
+    menu = relationship("Menu", back_populates="order")
