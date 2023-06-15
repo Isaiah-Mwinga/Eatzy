@@ -23,4 +23,10 @@ class Menu(BaseModel):
 #    is_staff: bool
 #    is_active: bool
 
-
+class Order(BaseModel):
+    name: str
+    phone: str
+    address: str
+    email: str
+    is_active: bool
+    menu_id: int
