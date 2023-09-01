@@ -3,6 +3,7 @@ import Navbar from './Navbar'; // Import your Navbar component
 import SearchBar from './SearchBar'; // Import your SearchBar component
 import RestaurantCard from './RestaurantCard'; // You can create a component for displaying restaurant cards
 import Footer from './Footer'; // Import your Footer component
+import Categories from './Categories';
 
 const Home = () => {
   const [restaurants, setRestaurants] = useState([]); // State to store restaurant data
@@ -44,6 +45,7 @@ const Home = () => {
       <Navbar />
       <div className="container mx-auto p-4">
         <SearchBar />
+        <Categories />
         <h1 className="text-3xl font-semibold my-4">Discover Restaurants</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Map through the 'restaurants' array and render restaurant cards */}
