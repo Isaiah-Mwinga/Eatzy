@@ -17,7 +17,7 @@ const SearchBar = () => {
 
   return (
     <form onSubmit={handleSearchSubmit} className="mb-4">
-      <div className="flex items-center border border-gray-400 rounded-full">
+      <div className="flex items-center justify-center border border-gray-400 rounded-full">
         <input
           type="text"
           placeholder="Search for restaurants or dishes"
@@ -27,7 +27,7 @@ const SearchBar = () => {
         />
         <button
           type="submit"
-          className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+          className=" text-black p-2 rounded-full hover:bg-white focus:outline-none"
         >
           Search
         </button>
