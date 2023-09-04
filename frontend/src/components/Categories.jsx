@@ -1,65 +1,8 @@
 
 import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { categories } from '../Data';
 
 const Categories = () => {
-  // Sample data for categories
-  const categories = [
-    {
-      id: 1,
-      name: 'Italian',
-      image: 'https://hips.hearstapps.com/hmg-prod/images/delish-230307-sopes-328-rv-lead-6418de26e5178.jpg', // Replace with actual image URL
-    },
-    {
-      id: 2,
-      name: 'Mexican',
-      image: 'https://hips.hearstapps.com/hmg-prod/images/delish-230307-sopes-328-rv-lead-6418de26e5178.jpg',
-    },
-    {
-      id: 3,
-      name: 'Chinese',
-      image: 'https://hips.hearstapps.com/hmg-prod/images/delish-230307-sopes-328-rv-lead-6418de26e5178.jpg',
-    },
-    {
-      id: 4,
-      name: 'Italian',
-      image: 'https://hips.hearstapps.com/hmg-prod/images/delish-230307-sopes-328-rv-lead-6418de26e5178.jpg',
-    },
-    {
-      id: 5,
-      name: 'Mexican',
-      image: 'https://hips.hearstapps.com/hmg-prod/images/delish-230307-sopes-328-rv-lead-6418de26e5178.jpg'
-    },
-    {
-      id: 6,
-      name: 'Chinese',
-      image: 'https://hips.hearstapps.com/hmg-prod/images/delish-230307-sopes-328-rv-lead-6418de26e5178.jpg',
-    },
-    {
-      id: 7,
-      name: 'Italian',
-      image: 'https://hips.hearstapps.com/hmg-prod/images/delish-230307-sopes-328-rv-lead-6418de26e5178.jpg',
-    },
-    {
-      id: 8,
-      name: 'Mexican',
-      image: 'https://hips.hearstapps.com/hmg-prod/images/delish-230307-sopes-328-rv-lead-6418de26e5178.jpg',
-    },{
-      id: 8,
-      name: 'Mexican',
-      image: 'https://hips.hearstapps.com/hmg-prod/images/delish-230307-sopes-328-rv-lead-6418de26e5178.jpg',
-    },{
-      id: 8,
-      name: 'Mexican',
-      image: 'https://hips.hearstapps.com/hmg-prod/images/delish-230307-sopes-328-rv-lead-6418de26e5178.jpg',
-    },{
-      id: 8,
-      name: 'Mexican',
-      image: 'https://hips.hearstapps.com/hmg-prod/images/delish-230307-sopes-328-rv-lead-6418de26e5178.jpg',
-    },
-    // Add more categories as needed
-  ];
 
   return (
     <div className='py-8'>
