@@ -10,9 +10,9 @@ const Navbar = () => {
         <SearchBar />
         </div>
         <div className=" relative flex ml-auto gap-4 ">
-          <Icon icon="ooui:message" className='text-xl'/>
-          <Icon icon="gg:profile" className='text-xl'/>
-          <Icon icon="mdi:cart-outline" className="text-xl" />
+          <Icon icon="ooui:message" className='text-xl cursor-pointer'/>
+          <Icon icon="gg:profile" className='text-xl cursor-pointer'/>
+          <Icon icon="mdi:cart-outline" className="text-xl cursor-pointer" />
           <p className="bg-orange-300 absolute -top-0 -right-0 text-[12px] rounded-full text-white h-4 w-4 grid place-items-center">3</p>
         </div>
       </div>

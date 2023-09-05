@@ -44,3 +44,47 @@
     // Add more categories as needed
   ];
 
+
+  export const restaurant = [
+    {
+      id: 1,
+      name: 'Hideout',
+      image: '', // Replace with actual image URL
+    },
+    {
+      id: 2,
+      name: 'Festoo',
+      image: '',
+    },
+    {
+      id: 3,
+      name: 'Pizza Hut',
+      image: '',
+    },
+    {
+      id: 4,
+      name: 'Burger King',
+      image: '',
+    },
+    {
+      id: 5,
+      name: 'Java',
+      image: ''
+    },
+    {
+      id: 6,
+      name: 'KFC',
+      image: '',
+    },
+    {
+      id: 7,
+      name: 'Barista',
+      image: '',
+    },
+    {
+      id: 8,
+      name: 'Cafe Coffee Day',
+      image: '',
+    },
+    // Add more categories as needed
+  ];
