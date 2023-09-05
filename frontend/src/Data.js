@@ -49,42 +49,42 @@
     {
       id: 1,
       name: 'Hideout',
-      image: '', // Replace with actual image URL
+      imageSrc: 'https://media.gettyimages.com/id/1388791611/photo/teppanyaki-style.jpg?s=612x612&w=0&k=20&c=gNhQXH4awScPV_ZR3GHXm6PKnz4HtjBS8Y5Oqb3Cs50=', // Replace with actual image URL
     },
     {
       id: 2,
       name: 'Festoo',
-      image: '',
+      imageSrc: 'https://media.gettyimages.com/id/1159992039/photo/cozy-restaurant-for-gathering-with-friends.jpg?s=612x612&w=0&k=20&c=FTnWMb2J9lI7M6Q06xlCDBwDq291PbNeU_YwcnzH9f0=',
     },
     {
       id: 3,
       name: 'Pizza Hut',
-      image: '',
+      imageSrc: 'https://media.gettyimages.com/id/1295387240/photo/delicious-meal.jpg?s=612x612&w=0&k=20&c=isW6dsxtdADt3pOlxGjmKjFyEY-E76Q3TXMmzN9-wuM=',
     },
     {
       id: 4,
       name: 'Burger King',
-      image: '',
+      imageSrc: 'https://media.gettyimages.com/id/1296353050/photo/man-eating-freshly-prepared-meal-in-restaurant.jpg?s=612x612&w=0&k=20&c=3f_ffpwn4HcsaPODpx5CCcrE2htA7RVjK3_q-lfNiWE=',
     },
     {
       id: 5,
       name: 'Java',
-      image: ''
+      imageSrc: 'https://media.gettyimages.com/id/991732782/photo/close-up-of-sommelier-serving-red-wine-at-fine-dining-restaurant.jpg?s=612x612&w=0&k=20&c=KPTJbmK7ryWZczvKJXkvCiwtc_BcX0oqJJN91qG2yVw='
     },
     {
       id: 6,
       name: 'KFC',
-      image: '',
+      imageSrc: 'https://media.gettyimages.com/id/1296352726/photo/tables-set-in-restaurant.jpg?s=612x612&w=0&k=20&c=AL3XTL5qpRD9K660E5MUY6waYc0ek_5Qm3m1RNGiyCY=',
     },
     {
       id: 7,
       name: 'Barista',
-      image: '',
+      imageSrc: 'https://media.gettyimages.com/id/1158221681/photo/cafe-bar-in-moscow.jpg?s=612x612&w=0&k=20&c=h4e121ZDuwWIFmVfTH_RY9uEawwJQ6mmDwCNjca39qc=',
     },
     {
       id: 8,
       name: 'Cafe Coffee Day',
-      image: '',
+      imageSrc: 'https://media.gettyimages.com/id/1293531072/photo/romantic-couple-enjoying-drinks-at-table-in-restaurant.jpg?s=612x612&w=0&k=20&c=DM7sPDS3qRRDCAu3DyYLuLIfJmrf90EeS-qK8yUtuGY=',
     },
     // Add more categories as needed
   ];
