@@ -3,8 +3,8 @@
   export const categories = [
     {
       id: 1,
-      name: 'Beverages',
-      image: 'https://images.pexels.com/photos/338713/pexels-photo-338713.jpeg?cs=srgb&dl=pexels-isabella-mendes-338713.jpg&fm=jpg', // Replace with actual image URL
+      name: 'Pizza',
+      image: 'https://media.post.rvohealth.io/wp-content/uploads/2020/08/is-pizza-healthy-732x549-thumbnail-732x549.jpg',// Replace with actual image URL
     },
     {
       id: 2,
@@ -13,8 +13,8 @@
     },
     {
       id: 3,
-      name: 'Pizza',
-      image: 'https://media.post.rvohealth.io/wp-content/uploads/2020/08/is-pizza-healthy-732x549-thumbnail-732x549.jpg',
+      name: 'Beverages',
+      image: 'https://images.pexels.com/photos/338713/pexels-photo-338713.jpeg?cs=srgb&dl=pexels-isabella-mendes-338713.jpg&fm=jpg',
     },
     {
       id: 4,
