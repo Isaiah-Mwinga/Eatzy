@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-const Menu = () => {
+const Menu = ({ onClick }) => {
   return (
-    <div>Menu</div>
-  )
-}
+    <div
+      className="cursor-pointer p-2"
+      onClick={onClick}
+    >
+      {/* Insert your menu icon here */}
+      ☰
+    </div>
+  );
+};
 
-export default Menu
+export default Menu;
