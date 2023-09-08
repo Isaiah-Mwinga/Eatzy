@@ -8,14 +8,21 @@ import Menu from './components/Menu'
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
+  const openSidebar = () => {
+    setSidebarOpen(true);
+  };
+
+  const closeSidebar = () => {
+    setSidebarOpen(false);
   };
 
   return (
     <div className=' flex py-2 overflow-hidden'>
       {/* Menu icon */}
-      <Menu onClick={toggleSidebar} />
+      <Menu
+        onMouseEnter={openSidebar} // Show sidebar on hover enter
+        onMouseLeave={closeSidebar} // Hide sidebar on hover leave
+      />
 
       {/* Sidebar */}
       {isSidebarOpen && <Sidebar isOpen={isSidebarOpen} />}
