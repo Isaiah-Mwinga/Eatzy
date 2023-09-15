@@ -1,58 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import ReactMapGL, { Marker, GeolocateControl } from 'react-map-gl';
-
-// Define your restaurant data (replace with actual data)
-const restaurants = [
-  { name: 'Restaurant A', latitude: 37.7749, longitude: -122.4194 },
-  { name: 'Restaurant B', latitude: 37.7749, longitude: -122.4294 },
-  // Add more restaurants as needed
-];
+import React, { useEffect } from 'react';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
 
 const Map = () => {
-  const [viewport, setViewport] = useState({
-    latitude: 0,
-    longitude: 0,
-    zoom: 12,
-  });
-
   useEffect(() => {
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const { latitude, longitude } = position.coords;
-        setViewport({
-          ...viewport,
-          latitude,
-          longitude,
-        });
-      });
-    }
+    // Initialize the map
+    const map = L.map('leaflet-map').setView([51.505, -0.09], 13); // Set initial coordinates and zoom level
+
+    // Add a base tile layer (you can replace this URL with your preferred tile layer)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+
+    // Add a marker to the map
+    L.marker([51.5, -0.09])
+      .addTo(map)
+      .bindPopup('A marker on the map.')
+      .openPopup();
   }, []);
 
   return (
     <div>
-      <ReactMapGL
-        {...viewport}
-        width="100%"
-        height="400px"
-        mapStyle="mapbox://styles/mapbox/streets-v11"
-        onViewportChange={(newViewport) => setViewport(newViewport)}
-        mapboxApiAccessToken="Ypk.eyJ1IjoibXdpbmdhNyIsImEiOiJjbG1mdWVraWMxdjVwM2NqcmQ0ajZhdHduIn0.adhfTMOEzftFBlBmmlthNg"
-      >
-        <GeolocateControl
-          positionOptions={{ enableHighAccuracy: true }}
-          trackUserLocation={true}
-        />
-
-        {restaurants.map((restaurant, index) => (
-          <Marker
-            key={index}
-            latitude={restaurant.latitude}
-            longitude={restaurant.longitude}
-          >
-            <div className="marker">R</div>
-          </Marker>
-        ))}
-      </ReactMapGL>
+      <h2>Leaflet Map Example</h2>
+      <div id="leaflet-map" style={{ width: '100%', height: '400px' }}></div>
     </div>
   );
 };
