@@ -23,7 +23,7 @@ class OrderService:
 
         payment = stripe.Charge.create(
             amount=request.subtotal * 1000,
-            currency="MYR",
+            currency="Ksh",
             customer=customer.id,
             receipt_email=request.token.email,
         )

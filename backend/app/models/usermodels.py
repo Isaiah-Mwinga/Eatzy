@@ -10,8 +10,6 @@ class User(Base):
     name = Column(String)
     email = Column(String)
     password = Column(String)
-    is_staff = Column(Boolean, default=False)
-    is_active = Column(Boolean, default=False)
 
 
     def __repr__(self):

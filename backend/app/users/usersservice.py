@@ -19,8 +19,6 @@ class UserService:
             name=user.name,
             email=user.email,
             password=Hashing.bcrypt(user.password),
-            is_staff=user.is_staff,
-            is_active=user.is_active,
         )
 
         db.add(db_user)
