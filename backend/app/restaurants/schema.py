@@ -16,12 +16,6 @@ class Menu(BaseModel):
     is_active: bool
     restaurant_id: int
 
-#class User(BaseModel):
-#    name: str
-#    email: str
-#    password: str
-#    is_staff: bool
-#    is_active: bool
 
 class Order(BaseModel):
     name: str
