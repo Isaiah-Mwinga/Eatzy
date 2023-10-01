@@ -7,7 +7,7 @@ from users.usersservice import UserService
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import Depends, HTTPException, status
 
-SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
+SECRET_KEY = "839610d3e1f12c8d518063df735afd580c0b6b85aa553ebb2db479e1f10a9b62"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
