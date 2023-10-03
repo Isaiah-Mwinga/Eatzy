@@ -54,6 +54,11 @@
     {
       id: 2,
       name: 'Festoo',
+      rating: 4.5,
+      location: {
+        latitude: 37.7749,
+        longitude: -122.4194,
+      },
       imageSrc: 'https://media.gettyimages.com/id/1159992039/photo/cozy-restaurant-for-gathering-with-friends.jpg?s=612x612&w=0&k=20&c=FTnWMb2J9lI7M6Q06xlCDBwDq291PbNeU_YwcnzH9f0=',
     },
     {
