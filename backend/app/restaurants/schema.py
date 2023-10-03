@@ -1,11 +1,16 @@
 from pydantic import BaseModel
 
+class coordinates(BaseModel):
+    lat: float
+    lng: float
+
 class Restaurant(BaseModel):
     name: str
     address: str
     phone: str
     email: str
     description: str
+    location: coordinates
     is_active: bool
     #owner_id: int
 

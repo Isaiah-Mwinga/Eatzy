@@ -12,6 +12,7 @@ class Restaurant(Base):
     phone = Column(String)
     email = Column(String)
     description = Column(String)
+    location = Column(String)
     is_active = Column(Boolean, default=False)
     menu = relationship("Menu", back_populates="restaurant")
 

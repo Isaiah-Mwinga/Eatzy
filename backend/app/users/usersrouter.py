@@ -19,7 +19,7 @@ def createUser(user: RegisterUser, db: Session = Depends(get_db)):
     return UserService.create_user(user, db)
 
 
-@router.get("/me")
+@router.get("/")
 def getMe(current_user: User = Depends(get_currentUser)):
     return current_user
 
