@@ -4,6 +4,7 @@ import RestaurantCard from '../components/RestaurantCard'; // You can create a c
 import Footer from '../components/Footer'; // Import your Footer component
 import Categories from '../components/Categories';
 import Sidebar from '../components/Sidebar';
+import Partner from '../components/Partner';
 
 const Home = () => {
   
@@ -18,6 +19,7 @@ const Home = () => {
       <Categories />
       <RestaurantCard />
       <Footer />
+      <Partner />
       </div>
     </div>
   );
