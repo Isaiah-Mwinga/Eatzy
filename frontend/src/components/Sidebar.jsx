@@ -7,7 +7,7 @@ import { BiHomeSmile, BiUser } from 'react-icons/bi'
 import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2'
 import { FiSettings, FiShoppingCart } from 'react-icons/fi'
 
-export const Sidebar = () => {
+const Sidebar = () => {
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
   useClickAway(ref, () => setOpen(false))
@@ -72,6 +72,8 @@ export const Sidebar = () => {
     </>
   )
 }
+
+export default Sidebar
 
 const items = [
   { title: 'Home', Icon: BiHomeSmile, href: '#' },
