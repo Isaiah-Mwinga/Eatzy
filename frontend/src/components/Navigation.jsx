@@ -11,7 +11,7 @@ export const Navigation = () => {
         <p>Animated Sidebar</p>
       </div>
       <a
-        className="flex items-center gap-2 px-4 py-2 text-orange-400 bg-orange-700/20 rounded-xl"
+        className="flex items-center gap-2 px-4 py-2 text-orange-400 bg-purple-50 rounded-xl"
         href=""
       >
         <FiGithub className="text-lg" />
